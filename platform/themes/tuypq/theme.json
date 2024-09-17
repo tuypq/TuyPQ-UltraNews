@@ -1,0 +1,8 @@
+{
+    "name": "TuyPQ",
+    "namespace": "Theme\\TuyPQ\\",
+    "description": "TuyPQ - Theme for magazine/news site.",
+    "author": "tuypq",
+    "version": "3.4.0",
+    "required_plugins": []
+}
