@@ -25,7 +25,7 @@ if (theme.fonts.font_family.secondary) {
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-   'platform/themes/tuypq/**/**/*.blade.php'
+   'platform/themes/**/**/**/*.blade.php'
   ],
   safelist: [{ pattern: /^swiper-/ }],
   theme: {
@@ -35,7 +35,7 @@ module.exports = {
       lg: "1024px",
       xl: "1280px",
       "2xl": "1536px",
-    },
+    }, 
     container: {
       center: true,
       padding: "2rem",
@@ -65,7 +65,7 @@ module.exports = {
         h6: h6 + "rem",
       },
       fontFamily: {
-        primary: ['font-serif'],
+        primary: [fontPrimary, fontPrimaryType],
         secondary: [fontSecondary, fontSecondaryType],
       },
     },

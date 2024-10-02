@@ -33,6 +33,9 @@
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.9",
         "predis/predis": "^2.2",
+        "pusher/pusher-php-server": "^7.2",
+        "socialiteproviders/microsoft": "^4.5",
+        "socialiteproviders/microsoft-azure": "^5.2",
         "wikimedia/composer-merge-plugin": "^2.1"
     },
     "require-dev": {

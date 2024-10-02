@@ -53,6 +53,7 @@ class GeneralSettingController extends SettingController
 
     public function getVerifyLicense(Request $request, Core $core)
     {
+        dd('a');
         if ($request->expectsJson() && ! $core->checkConnection()) {
             return response()->json([
                 'message' => sprintf('Your IP (%s) has been blocked or your server is not connected to the internet.', Helper::getIpFromThirdParty()),

@@ -17,7 +17,8 @@ mix
 .sass(source + '/assets/sass/navigation.scss', dist + '/css')
 .sass(source + '/assets/sass/utilities.scss', dist + '/css')
 
-;
+.js(source + '/assets/plugins/swiper/swiper-bundle.js', dist + '/js')
+.copy(dist + '/js/swiper-bundle.js', source + '/public/js');
 
 
 

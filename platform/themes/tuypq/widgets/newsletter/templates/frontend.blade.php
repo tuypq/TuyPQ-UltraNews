@@ -1,8 +1,5 @@
-<div class="sidebar-widget widget_newsletter mb-30">
-    <div class="widget-header position-relative mb-30">
-        <h5 class="widget-title mt-5 mb-30 color-white">{{ $config['name'] }}</h5>
-        <div class="letter-background">{{ $config['name'][0] ?? '' }}</div>
-    </div>
+
+    <h6 class="">{{ $config['name'] }}</h5>
     <div class="newsletter">
         <p class="color-white">{{ $config['description'] }}</p>
         <div class="footer-form">

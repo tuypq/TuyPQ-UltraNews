@@ -1,0 +1,11 @@
+{
+    "id": "botble/chat-plugin",
+    "name": "Chat Plugin",
+    "namespace": "Botble\\ChatPlugin\\",
+    "provider": "Botble\\ChatPlugin\\Providers\\ChatPluginServiceProvider",
+    "author": "",
+    "url": "",
+    "version": "1.0.0",
+    "description": "",
+    "minimum_core_version": "7.3.2"
+}

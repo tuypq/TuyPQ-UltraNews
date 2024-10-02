@@ -23,9 +23,8 @@ class SocialLoginController extends BaseController
     public function redirectToProvider(string $provider, Request $request)
     {
         $this->ensureProviderIsExisted($provider);
-
+      
         $guard = $this->guard($request);
-
         if (! $guard) {
             return $this
                 ->httpResponse()
@@ -34,7 +33,7 @@ class SocialLoginController extends BaseController
         }
 
         $this->setProvider($provider);
-
+        
         session(['social_login_guard_current' => $guard]);
 
         return Socialite::driver($provider)->redirect();
@@ -61,13 +60,25 @@ class SocialLoginController extends BaseController
 
     protected function setProvider(string $provider): bool
     {
-        config()->set([
-            'services.' . $provider => [
-                'client_id' => SocialService::setting($provider . '_app_id'),
-                'client_secret' => SocialService::setting($provider . '_app_secret'),
-                'redirect' => route('auth.social.callback', $provider),
-            ],
-        ]);
+        if($provider == 'microsoft'){
+            config()->set([
+                'services.' . $provider => [
+                    'client_id' => SocialService::setting($provider . '_app_id'),
+                    'client_secret' => SocialService::setting($provider . '_app_secret'),
+                    'redirect' => route('auth.social.callback', $provider),
+                    'tenant' => '5400de46-bf46-4559-b44c-e447548a6cb2',
+                ],
+            ]);
+        }else{
+            config()->set([
+                'services.' . $provider => [
+                    'client_id' => SocialService::setting($provider . '_app_id'),
+                    'client_secret' => SocialService::setting($provider . '_app_secret'),
+                    'redirect' => route('auth.social.callback', $provider),
+                ],
+            ]);
+        }
+        
 
         return true;
     }
@@ -164,7 +175,7 @@ class SocialLoginController extends BaseController
             $account->confirmed_at = Carbon::now();
             $account->save();
         }
-
+    
         Auth::guard($guard)->login($account, true);
 
         return $this

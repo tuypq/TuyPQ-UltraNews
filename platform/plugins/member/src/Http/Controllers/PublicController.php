@@ -88,8 +88,8 @@ class PublicController extends BaseController
 
     public function getDashboard()
     {
-        $user = auth('member')->user();
-
+        $user = auth('member')->user(); 
+        
         $this->pageTitle(__('Dashboard'));
 
         Assets::addScriptsDirectly('vendor/core/plugins/member/js/dashboard/activity-logs.js');

@@ -91,9 +91,7 @@ class LoginController extends BaseController
     public function logout(Request $request)
     {
         do_action(AUTH_ACTION_AFTER_LOGOUT_SYSTEM, $request, $request->user());
-
         $this->guard()->logout();
-
         $request->session()->invalidate();
 
         return $this->httpResponse()

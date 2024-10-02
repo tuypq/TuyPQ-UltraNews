@@ -1,11 +1,11 @@
 <div class="simple-pagination d-flex align-items-center">
-  <p class="m-0 text">
+  {{-- <p class="m-0 text">
       {{ trans('core/base::base.showing_records', [
           'from' => $paginator->firstItem(),
           'to' => $paginator->lastItem(),
           'total' => $paginator->total(),
       ]) }}
-  </p>
+  </p> --}}
 
   @if ($paginator->hasPages())
   <ul class="inline-flex -space-x-px text-sm">

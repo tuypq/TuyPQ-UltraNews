@@ -1,10 +1,12 @@
-<div class="sidebar-widget mb-30">
-    <div class="widget-header position-relative mb-30">
-        <h5 class="widget-title mt-5 mb-30 color-white">{{ $config['name'] }}</h5>
-        <div class="letter-background">{{ $config['name'][0] ?? '' }}</div>
+
+<div>
+    <div class="">
+        <h5 class="widget-title mb-30 color-white">{{ $config['name'] }}</h5>
     </div>
+    <p class="mt-6 text-sm">
+        {{ $config['description'] }}
+    </p>
     <div class="post-block-list post-module-1 post-module-5">
-        <p class="font-medium text-muted">{{ $config['description'] }}</p>
         @if (theme_option('address'))
             <p>
                 <strong>{{ __('Address') }}</strong>

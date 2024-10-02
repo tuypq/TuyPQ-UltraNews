@@ -12,6 +12,7 @@ use Illuminate\Validation\ValidationException;
 
 class LoginController extends BaseController
 {
+
     use AuthenticatesUsers, LogoutGuardTrait {
         AuthenticatesUsers::attemptLogin as baseAttemptLogin;
     }
@@ -60,6 +61,7 @@ class LoginController extends BaseController
 
     protected function attemptLogin(Request $request)
     {
+        dd('a');
         if ($this->guard()->validate($this->credentials($request))) {
             $member = $this->guard()->getLastAttempted();
 
@@ -107,7 +109,7 @@ class LoginController extends BaseController
         }
 
         $this->loggedOut($request);
-
+        
         return redirect()->route('public.index');
     }
 }

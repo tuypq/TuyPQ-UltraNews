@@ -283,6 +283,20 @@ app()->booted(function () {
         shortcode()->setAdminConfig('gallery', function ($attributes) {
             return Theme::partial('shortcodes.gallery-admin-config', compact('attributes'));
         });
+
+        add_shortcode('gallery-slider', __('Gallery slider'), __('Gallery slider'), function ($shortcode) {
+            $title = $shortcode->title;
+            $gallery_id = $shortcode->gallery;
+            $gallery = app(GalleryInterface::class)->getFirstBy([
+                'id' => $gallery_id,
+            ]);
+
+            return Theme::partial('shortcodes.gallery-slider', compact('title', 'gallery'));
+        });
+
+        shortcode()->setAdminConfig('gallery-slider', function ($attributes) {
+            return Theme::partial('shortcodes.gallery-slider-admin-config', compact('attributes'));
+        });
     }
 
     if (is_plugin_active('pro-posts')) {

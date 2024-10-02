@@ -58,7 +58,7 @@ if (defined('THEME_MODULE_SCREEN_NAME')) {
             Route::group([
                 'prefix' => 'account',
             ], function () {
-                Route::post('logout', 'LoginController@logout')->name('logout');
+                Route::get('logout', 'LoginController@logout')->name('logout');
 
                 Route::get('dashboard', [
                     'as' => 'dashboard',

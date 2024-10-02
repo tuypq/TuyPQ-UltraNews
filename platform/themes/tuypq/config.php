@@ -55,6 +55,7 @@ return [
             // You may use this event to set up your assets.
             $theme->asset()->add('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css');
             $theme->asset()->usePath()->add('style', 'css/main.css', [], [], $version);
+            $theme->asset()->usePath()->add('bundle', 'plugins/swiper/swiper-bundle.css', [], [], $version);
 
             if (BaseHelper::siteLanguageDirection() == 'rtl') {
                 $theme->asset()->usePath()->add('rtl', 'css/rtl.css', [], [], $version);
@@ -76,7 +77,10 @@ return [
             $theme->asset()->container('footer')->usePath()->add('jquery.counterup', 'js/vendor/counterup.js', ['jquery']);
             $theme->asset()->container('footer')->usePath()->add('theia', 'js/vendor/jquery.theia.sticky.js', ['jquery']);
             $theme->asset()->container('footer')->usePath()->add('lazyload', 'js/vendor/lazyload.min.js');
+            $theme->asset()->container('footer')->usePath()->add('swiper', 'plugins/swiper/swiper-bundle.js', ['jquery'], []);
+            $theme->asset()->container('footer')->usePath()->add('shuffle', 'plugins/shufflejs/shuffle.js', ['jquery'], []);
             $theme->asset()->container('footer')->usePath()->add('script', 'js/main.js', ['jquery'], [], $version);
+            
 
             if (function_exists('shortcode')) {
                 $theme->composer(['page', 'post'], function (View $view) {

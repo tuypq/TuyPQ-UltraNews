@@ -42,10 +42,28 @@
                 'options' => ['id' => 'nav-menu', 'class'=> 'navbar-nav order-2 hidden w-full flex-[0_0_100%] lg:order-1 lg:flex lg:w-auto lg:flex-auto lg:justify-center lg:space-x-5'],
         ]) !!}
 
-      
-      {{-- <div class="order-1 ml-auto hidden items-center md:order-2 md:ml-0 lg:flex">
-        <a class="btn btn-white btn-sm" href="signin.html">Sing Up Now</a>
-      </div> --}}
+
+    
+    @if (auth('member')->user())
+        <div class="order-1 ml-auto hidden items-center md:order-2 md:ml-0 lg:flex">
+            <div class="flex items-center gap-4">
+                <img class="w-10 h-10 rounded-full" src="{{ auth('member')->user()->avatar_url }}" alt="">
+                <div class="font-medium dark:text-white">
+                    <div>{{ auth('member')->user()->name }}</div>
+                    <div class="text-sm text-gray-500 dark:text-gray-400">{{ __('Joined on :date', ['date' => auth('member')->user()->created_at->translatedFormat('M d, Y')]) }}</div>
+                </div>
+                <div class="ps-block__action">
+                    <a href="{{ route('public.member.logout') }}">
+                        <x-core::icon name="ti ti-logout" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    @else
+    <div class="order-1 ml-auto hidden items-center md:order-2 md:ml-0 lg:flex">
+        <a class="btn btn-white btn-sm" href="{{route('public.member.login')}}">Login</a>
+      </div>
+    @endif
     </nav>
   </header>
   
