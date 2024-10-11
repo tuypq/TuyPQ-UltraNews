@@ -61,7 +61,6 @@ class LoginController extends BaseController
 
     protected function attemptLogin(Request $request)
     {
-        dd('a');
         if ($this->guard()->validate($this->credentials($request))) {
             $member = $this->guard()->getLastAttempted();
 

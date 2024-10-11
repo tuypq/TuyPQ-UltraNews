@@ -38,6 +38,7 @@
         "vue-loader": "^17.3.0"
     },
     "dependencies": {
+        "@preline/carousel": "^2.5.0",
         "axios": "^1.6.8",
         "cropperjs": "^1.6.2",
         "epic-spinners": "^2.0.0",

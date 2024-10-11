@@ -290,8 +290,9 @@ app()->booted(function () {
             $gallery = app(GalleryInterface::class)->getFirstBy([
                 'id' => $gallery_id,
             ]);
+            $style = $shortcode->style ?? 1;
 
-            return Theme::partial('shortcodes.gallery-slider', compact('title', 'gallery'));
+            return Theme::partial('shortcodes.gallery-slider-style-'.$style, compact('title', 'gallery'));
         });
 
         shortcode()->setAdminConfig('gallery-slider', function ($attributes) {
@@ -346,4 +347,49 @@ app()->booted(function () {
             return Theme::partial('shortcodes.recently-viewed-posts-admin-config', compact('attributes', 'content'));
         });
     }
+
+    add_shortcode('pages-slider', __('Pages slider'), __('Pages slider'), function ($shortcode) {
+        if (! is_plugin_active('post-collection')) {
+            return null;
+        }
+        $queryPosts = [];
+        $posts = [];
+      
+            switch ($shortcode->filter_by) {
+                case 'featured':
+                    $queryPosts = [
+                        'featured' => 1,
+                        'limit' => $shortcode->limit ? (int) $shortcode->limit : 4,
+                    ];
+
+                    break;
+
+                case 'recent':
+                    $queryPosts = [
+                        'limit' => $shortcode->limit ? (int) $shortcode->limit : 4,
+                    ];
+
+                    break;
+
+                case 'ids':
+                    $queryPosts = [
+                        'include' => $shortcode->include,
+                    ];
+
+                    break;
+
+            $posts = query_post($queryPosts);
+        }
+
+        $title = $shortcode->title ?? '';
+        $description = $shortcode->description ?? '';
+        $style = $shortcode->style ?? 1;
+
+        return Theme::partial('shortcodes.pages-slider-style-' . $style, compact('posts', 'title', 'description'));
+    });
+    shortcode()->setAdminConfig('pages-slider', function ($attributes) {
+        $postsCollections = app(PostCollectionInterface::class)->all();
+
+        return Theme::partial('shortcodes.pages-slider-admin-config', compact('attributes', 'postsCollections'));
+    });
 });

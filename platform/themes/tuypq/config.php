@@ -80,6 +80,7 @@ return [
             $theme->asset()->container('footer')->usePath()->add('swiper', 'plugins/swiper/swiper-bundle.js', ['jquery'], []);
             $theme->asset()->container('footer')->usePath()->add('shuffle', 'plugins/shufflejs/shuffle.js', ['jquery'], []);
             $theme->asset()->container('footer')->usePath()->add('script', 'js/main.js', ['jquery'], [], $version);
+            $theme->asset()->container('footer')->add('alpinejs', 'https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js');
             
 
             if (function_exists('shortcode')) {

@@ -1,5 +1,5 @@
 <section>
-    <h1><span class="color2">{{ SeoHelper::getTitle() }}</span></h1>
+    <h2><span class="color2">{{ SeoHelper::getTitle() }}</span></h2>
     {!! Theme::partial('breadcrumbs') !!}
     @if (theme_option('enable_show_post_author_detail', 'yes') == 'yes' && class_exists($post->author_type) && $post->author && $post->author->id)
     <div class="mt-6 mb-5 flex items-center space-x-2">

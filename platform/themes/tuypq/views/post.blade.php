@@ -60,7 +60,7 @@
                     </div>
                 @endif
 
-                <div class="entry-bottom mt-50 mb-30">
+                {{-- <div class="entry-bottom mt-50 mb-30">
                     @if (!$post->tags->isEmpty())
                     <div class="category-filter mb-10 mt-3 rounded-xl bg-[#EEEEEE] px-4">
                         <ul class="filter-list">
@@ -72,7 +72,7 @@
                         </ul>
                       </div>
                     @endif  
-                </div>
+                </div> --}}
 
                 <div class="single-social-share clearfix wow fadeIn animated">
                     <ul class="d-inline-block list-inline float-right">

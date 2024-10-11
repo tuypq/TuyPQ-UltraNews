@@ -1,11 +1,12 @@
 <header class="header">
+  <div>
     <nav class="navbar container">
         @if (theme_option('logo'))
         <!-- logo -->
       <div class="order-0">
         <a href="{{ route('public.index') }}">
           <img  src="{{ RvMedia::getImageUrl(theme_option('logo')) }}"
-                                 alt="{{ setting('site_title') }} " height="20" width="125" alt="logo" />
+                                 alt="{{ setting('site_title') }} " height="20" width="100" alt="logo" />
         </a>
       </div>
     @endif
@@ -61,9 +62,10 @@
         </div>
     @else
     <div class="order-1 ml-auto hidden items-center md:order-2 md:ml-0 lg:flex">
-        <a class="btn btn-white btn-sm" href="{{route('public.member.login')}}">Login</a>
+        <a class="btn btn-white btn-sm" href="{{route('access.login')}}">Login</a>
       </div>
     @endif
     </nav>
+  </div>
   </header>
   
